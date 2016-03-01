@@ -34,21 +34,21 @@
 #include <plplot.h>
 #include <wiringPi.h>
 
-// LED Pin - wiringPi pin 0 is BCM_GPIO 17.
-// LED Pin - wiringPi pin      physical pin
-//                     06                07
-//                     01                12
-//                     04                16
-//                     05                18
-//                     07                29
-//                     08                31
-//                     09                32
-//                     10                33
-//                     12                35
-//                     14                37  x
-//                     13                36  x
-//                     15                38  x
-//                     16                40  x
+// wiringPI: LED Pin - wiringPi pin 0 is BCM_GPIO 17.
+// wiringPI: LED Pin - wiringPi pin      physical pin
+// wiringPI:                     06                07
+// wiringPI:                     01                12
+// wiringPI:                     04                16
+// wiringPI:                     05                18
+// wiringPI:                     07                29
+// wiringPI:                     08                31
+// wiringPI:                     09                32
+// wiringPI:                     10                33
+// wiringPI:                     12                35
+// wiringPI:                     14                37  x
+// wiringPI:                     13                36  x
+// wiringPI:                     15                38  x
+// wiringPI:                     16                40  x
 #define	LED29	7
 #define	LED31	8
 #define	LED33	10
@@ -58,13 +58,13 @@
 #define	LED38	15
 #define	LED40	16
 
-// Variables for holding error return info from PLplot
+// Plplot:  Variables for holding error return info from PLplot
 static PLINT pl_errcode;
 static char errmsg[160];
 
 int main(int argc, const char *argv[]) {
 
-	// declare vars for pplot
+	// Plplot: declare vars for pplot
 	PLINT id1, n = 0, autoy, acc;
 	PLFLT y[5] = {0.0, 0.0, 0.0, 0.0, 0.0 }, ymin, ymax, xlab, ylab;
 	PLFLT yhold[5] = {0.0, 0.0, 0.0, 0.0, 0.0 };
@@ -74,7 +74,7 @@ int main(int argc, const char *argv[]) {
 	char  driver[80] = "wxwidgets";    // xwin, xterm, wxwidgets, qtwidget
 	char  geometry_master[] = "800x400+100+200";
 
-	// declare vars for WiringPi
+	// wiringPI: declare vars for WiringPi
 	int delay_ms = 40, i;
 	unsigned int ledi[8] = { LED29, LED31, LED33, LED35, LED36, LED37, LED38, LED40 };
 
@@ -84,26 +84,27 @@ int main(int argc, const char *argv[]) {
 		driver[sizeof(driver) - 1] = '\0';
 	}
 
-	// plplot initialization
-	// Parse and process command line arguments
+	// Plplot:  initialization
+	// Plplot:  Parse and process command line arguments
 
 	(void) plparseopts(&argc, argv, PL_PARSE_FULL);
 
-	// Specify some reasonable defaults for ymin and ymax
-	// The plot will grow automatically if needed (but not shrink)
+	// Plplot:  Specify some reasonable defaults for ymin and ymax
+	// Plplot:  The plot will grow automatically if needed (but not shrink)
 	ymin  = -0.1;
 	ymax  = 0.1;
 
-	// Specify initial tmin and tmax -- this determines length of window.
-	// Also specify maximum jump in t
-	// This can accommodate adaptive timesteps
+	// Plplot:  Specify initial tmin and tmax -- this determines length of window.
+	// Plplot:  Also specify maximum jump in t
+	// Plplot:  This can accommodate adaptive timesteps
 	tmin  = 0.;
 	tmax  = (float) delay_ms * 1.0e-3 * 100.0;
 	autoy = 1;       // autoscale y
 	tjump = 0.01;    // 0.2 percentage of plot to jump
 	acc   = 0;       // 1: accumulate;  0: scroll,
 
-	/* Color index of Plplot
+	/*  Plplot:
+	    Color index of Plplot
 		0	black (default background)
 		1	red (default foreground)
 		2	yellow
@@ -120,9 +121,9 @@ int main(int argc, const char *argv[]) {
 		13	magenta
 		14	salmon
 		15	white
-	*/
+	 Plplot: */
 
-	// Axes options same as plbox.
+	// Plplot:  Axes options same as plbox.
 	colbox     = 1;
 	collab     = 15;
 	colline[0] = 1;              // pens color and line style
@@ -142,7 +143,8 @@ int main(int argc, const char *argv[]) {
 	xlab       = 0.01;            // legend position
 	ylab       = 0.98;
 
-	/* Device index for Plplot
+	/*  Plplot:
+	 Device index for Plplot
 	 < 1> ps         PostScript File (monochrome)
 	 < 2> psc        PostScript File (color)
 	 < 3> xfig       Fig file
@@ -161,27 +163,27 @@ int main(int argc, const char *argv[]) {
 	 <16> pdfqt      Qt PDF driver
 	 <17> extqt      External Qt driver
 	 <18> memqt      Memory Qt driver
-*/
+     Plplot: */
 	printf("Message: Setup graphic driver.\n");
     plsdev(driver);         // which graphic driver
 
-    // put some command line parameters here
+    // Plplot:  put some command line parameters here
     plsetopt( "geometry", geometry_master );
 
-	// Initialize plplot
+	// Plplot: plplot
 	plinit();
 
 	pladv(0);               // set to page 0
 	plvsta();               // standard view
 
-	// Register our error variables with PLplot
-	// From here on, we're handling all errors here
+	// Plplot: Register our error variables with PLplot
+	// Plplot: From here on, we're handling all errors here
 	plsError(&pl_errcode, errmsg);
 
 
 	plschr(0, 0.7);			// change font size
 
-	// setup and define a 4-line chart
+	// Plplot: setup and define a 4-line chart
 	plstripc(&id1, "bcnst", "bcnstv", tmin, tmax, tjump, ymin, ymax, xlab, ylab,
 			autoy, acc, colbox, collab, colline, styline, legline,
 			"time [s]", "Voltage [v]", "LED Status");
@@ -191,7 +193,7 @@ int main(int argc, const char *argv[]) {
 		exit(1);
 	}
 
-	// Let plplot handle errors from here on
+	// Plplot: Let plplot handle errors from here on
 
 	plsError(NULL, NULL);
 
@@ -199,7 +201,7 @@ int main(int argc, const char *argv[]) {
 
 	wiringPiSetup();
 
-	// set up pins as output
+	// wiringPI: set up pins as output
 	for (i = 0; i < 8; i++) {
 		pinMode(ledi[i], OUTPUT);
 	}
@@ -237,7 +239,7 @@ int main(int argc, const char *argv[]) {
 		}
 
 		//n++;
-		if (n<0){
+		if (0 && n > 0){
 			printf("Reset and restart ... ...\n");
 			n = 0;
 			plstripd(id1);
@@ -250,7 +252,7 @@ int main(int argc, const char *argv[]) {
 		}
 	}
 
-	// Destroy strip chart and it's memory
+	// Plplot: Destroy strip chart and it's memory
 	plstripd(id1);
 	plend();
 
