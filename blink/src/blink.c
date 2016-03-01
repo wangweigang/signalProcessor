@@ -49,6 +49,7 @@
 // wiringPI:                     13                36  x
 // wiringPI:                     15                38  x
 // wiringPI:                     16                40  x
+// TODO the order needs to be modified to match the plot output
 #define	LED29	7
 #define	LED31	8
 #define	LED33	10
