@@ -1,0 +1,167 @@
+1 Request
+A regression test procedure for VCM system based on open-loop HIL shall be specified with following features, i.e.,
+* Input signals shall be defined and collected from vehicle/engine test;
+* A driving sequence with vehicle (or simulated in engine test bench) shall be defined to make the signal collected as close as possible to on-road driving situations;
+* Certain worst case situations shall be integrated into the test sequence;
+* The actuator block with solenoid valves shall be placed in temperature chamber[W1] dynamically-regulated, e.g., from -20 to 110°C;
+* The output signals/variables shall be selected to represent the major control features and diagnostic signal from VCM;
+* The format and contents of a complete regression test report shall be defined. 
+
+The regression test thus defined shall be performed for each and every system release.
+
+1.1 General information
+As a common tool for embedded-system development, the regression test in HIL in UniAir department is absolutely indispensible and its use shall be extended to system level. 
+The long-term objective is a regression test with closed-loop HIL method. However, the lack of ECM models in the present time makes the open-loop HIL a practical approach between SW release builds not only for same but also potentially for different platforms of hardware/software.
+
+1.2 Status and history
+
+1.2.1 Status 
+AuthorReviserApprovalW. Wangapproval in progress
+1.2.2 Version history
+RevisionDateAuthorComment0.125.05.2012W. Wangfirst draft
+2 Requirement for regression test
+The essential components for a regression test based on open-loop HIL approach are,
+* Input signal/variable definition;
+* Driving sequence for input signal collection;
+* Output signals/variables;
+* Hardware specification;
+* Test report specification.
+The work flow for the entire regression test is shown in Fig.2.1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 2.1: Work flow of regression test in HIL. The working elements marked with bold fonts are performed for every test; while the elements marked with normal fonts are performed before and during the case definition phase and irregularly afterwards.
+
+
+
+
+
+
+
+
+
+            (a)                                   (b)                                (c)                                    (d)
+Figure 2.2: Four different hardware/software/calibration layouts for regression tests.
+
+For hardware and software layout in block Regression test in HIL in Fig.2.1, a few possibilities exist. Some common layout for the regression test are shown in Fig.2.2 (a), (b) and (c) in which software, hardware and calibration are isolated one at a time, respectively, from other components to identify the corresponding difference between different cases. 
+
+In a few situations,  the approach shown in Fig.2.2 (d) can also be applied to simply check if one set of hardware and software with its calibration is capable to function at all, which is especially useful for post-early phase of the development.  
+
+In the following sections, the requirements for the regression test are defined/specified in details.
+
+
+
+
+
+
+
+2.1 
+Input signals
+A minimal set of signals listed in Table 2.1 shall be recorded and prepared for the regression test.
+The signal set shall evolve along with the development of new functionalities in software, hardware evolution and more critical cases revealed lab and field.
+
+Table 2.1: Minimal input signals from ECM to VCM 
+NoSignal descriptionVariable name1Engine speedrpm2Value of the voltage on the power stageiBatteryVolt3Cylinder in expansion phase (90°CA after TDC)nAbsCylinderId4Cylinder to be programmednCylSelectionId5Mechanical Valve Closing Angle of a cylinder in Early Closing ModeeClosAReqEC6Mechanical Valve Opening Angle of a cylinder in Late Opening Mode eOpenAReqLO7Mechanical valve opening angle of a cylinder in Hybrid Actuation ModeeOpenReqHB8Valve Mode Code nValveModeId9Oil temperature in HPCwOilTemp
+
+
+
+2.2 
+Driving sequence for signal collection
+
+A driving sequence shall be defined in a way that the essential features of VCM system. Furthermore, certain worst cases shall be covered as much as possible.
+The input signal recording shall be performed in vehicle (or engine). The driving pattern is defined as follows.
+1. Ignition on;
+2. start recordings for normal variables (by INCA) and SV currents;
+3. Engine start;
+4. idle: 10 second;
+5. pedal depressed and releases quickly 3 times;
+6. back to idle: 10 second;
+7. engage 1st gear, accelerate the car to 20 km/h; 
+8. engage 2nd gear, accelerate the car to 50 km/h;
+9. engage 3rd gear, accelerate the car to 80 km/h;
+10. engage 4th gear, accelerate the car to120 km/h; 
+11. stop the vehicle and keep the engine to run at idle for 10 second;
+12. save all recordings;
+If the measurement/recording for normal variables and SV current are performed separately, the synchronization of both signal shall be ensured by,
+* physical synchronization by electronic hardware, or,
+* recording of a common signal (e.g., rpm) for both measurements.
+A schematic of the driving sequence is shown in Fig.1.2. 
+The basic driving sequence defined above shall be improved with more and deeper understanding to the critical conditions and the worst cases. 
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 2.2: A schematic driving sequence for input signal acquisition.
+
+2.3 Software, hardware and SV for HIL test
+* Software: last released and currently to be released SW;
+* ECU: an ECU designated for the current VCM release;
+* Temperature chamber: dynamically regulated from -20 – 120°C with high repeatability; (if not, we need a refrigerator for minus degree and an oven for 120°C : )
+* Current clams and the signal recording device for each and every SV;
+* SV layout for the actuator block,
+o for 4-cylinder engine: fast (open), slow, nominal, stuck/fast(mid);
+o for 2-cylinder engine: fast (open), nominal.
+
+2.4 
+Output signals from HIL test
+The output signals from regression test shall be selected to best reflect the system behavior. ...
+
+Table 2.2:  Minimal output/input signals from HIL test
+NoSignal descriptionVariable typeVariable name1Engine speedInputrpm                        2Oil temperature in HPCInputwOilTemp  3Coil temperature OutputwCoilTemp  4electric close angle OutputeFinishSX_Cy*                 5electric open angleOutputeStartSX_Cy*  6SV switch-on time (low precision)OutputtSwOnLowPrecV*    7SV current profileOutputCurrent_*
+2.5 Test report
+Test report shall be complete and ready to share with customer. A document template shall be provided for its contents and format. The contents and format is defined in following sections.
+2.5.1 Contents
+Following contents shall be included in the test report, i.e.,
+1. Abstract;
+2. Hardware type and number;
+3. Software version and release number;
+4. Calibration version;
+5. Special calibration for HIL;
+6. Major input signals in graphic form;
+7. Major output signal in graphic form;
+8. Statistic analysis for every major output signal;
+9. Pass and no-pass criteria and status;
+10. Abnormality identification;
+11. Summary.
+2.5.2 Format
+Test report shall be a Word document for internal use and a PDF document for customer release.
+
+3 
+Summary
+The requirements for regression test have been specified from the input signal definition / acquisition, driving sequence specification, output signal/variable definition to the final reporting.
+A very important aspect for the requirements of the regression test is that the requirements need to be continuously improved to accommodate / facilitate the abnormality-prone and worst cases.   
+
+[W1]Can we get one?
+
+
+
+	 Seite 1 von 8
+
+	
+
