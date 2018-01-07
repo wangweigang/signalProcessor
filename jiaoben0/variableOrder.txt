@@ -375,8 +375,8 @@ class Car:
         self.wheelBase   = 2840 # mm
         self.dt          = 0.01
         self.steering    = 0   
-        self.turnRate    = 3
-        self.accel       = 9800/200   # mm/s/s
+        self.turnRate    = 3 * scale
+        self.accel       = 9800/200/scale   # mm/s/s
         # self.initX       = int(random.randrange(-22,22) + int(0.5*self.widthScreen-0.5*self.width))
         
         resetVehi(self)
@@ -384,7 +384,7 @@ class Car:
         # steering decay
         self.steeringDecayMax = 30   # number of dt 
         self.steeringCounter  = 0
-        self.returnRate       = 2
+        self.returnRate       = 2 
         self.keyLeft          = False
         self.keyRight         = False
            
@@ -778,6 +778,7 @@ class Car:
             if len(self.posOfSecPri)>1:
                 pygame.draw.lines(screenGlbl, (0,0,255), False, self.posOfSecPri, 2)
              
+             
     def checkBounds(self):
         self.position[0] = max(self.position[0], -self.centerRoi[0])
         self.position[0] = min(self.position[0], -self.centerRoi[0]+self.widthRoi)
@@ -804,8 +805,8 @@ class Car:
             self.keyLeft         = True
             self.steeringCounter = 0
             self.steering       -= self.turnRate
-
-        self.steering = np.sign(self.steering)*np.min([45, np.abs(self.steering)])
+        # check bound 
+        self.steering = np.sign(self.steering)*np.min([50, np.abs(self.steering)])
             # accelerating/deaccelerating        
         if keys[pygame.K_UP]:
             self.speed += self.accel
@@ -955,8 +956,10 @@ def resetVehi(car):
     if controlParGlbl == 0:    
         car.speed      = 0
         car.steering   = 0
-        car.initX      = int(0.5*random.randrange(-car.widthRoi, car.widthRoi))
-        car.initY      = int(car.centerRoi[1]-0*car.heightRoi*0.95) # 300.0
+        # car.initX      = int(0.5*random.randrange(-car.widthRoi, car.widthRoi))
+        # car.initY      = int(car.centerRoi[1]-0*car.heightRoi*0.95) # 300.0
+        car.initX      = int(random.randrange(screenCntrGlbl[0]-widthScreen, widthScreen-screenCntrGlbl[0]) / scaleGeoGlbl)
+        car.initY      = int((heightScreen-screenCntrGlbl[1]) / scaleGeoGlbl)
         # the car center (wheel center)
         car.position   = np.array([car.initX, car.initY])
     
