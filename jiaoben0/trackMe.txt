@@ -1,0 +1,508 @@
+' Attribute VB_Name = "basTrackChanges_Extract"
+Option Explicit
+
+Public timeFrom As Date
+Public timeTo As Date
+Public pageFrom As Long
+Public pageTo As Long
+
+Public Sub trackMe()
+
+'Macro created 2007 by Lene Fredborg, DocTools - www.thedoctools.com
+'The macro creates a new document
+'and extracts insertions and deletions
+'marked as tracked changes from the active document
+'NOTE: Other types of changes are skipped
+'(e.g. formatting changes or inserted/deleted footnotes and endnotes)
+'Only insertions and deletions in the main body of the document will be extracted
+'The document will also include metadata
+'Inserted text will be applied black font color
+'Deleted text will be applied red font color
+
+'Minor adjustments are made to the styles used
+'You may need to change the style settings and table layout to fit your needs
+'
+' 20130420: added some controls to check part of all revisions (Weigang)
+'=========================
+
+    Dim oDoc As Document
+    Dim oNewDoc As Document
+    Dim oTable As Table
+    Dim oRow As Row
+    Dim oCol As Column
+    Dim oRange As Range
+    Dim oRevision As Revision
+    Dim strText As String
+    Dim n As Long
+    Dim i As Long
+    Dim Title As String
+
+    Dim timeRev As Date
+    Dim timeToStr As String
+
+    Dim pageFromStr As String
+    Dim pageToStr As String
+
+    Dim sRevDate As String
+    Dim sRevDate0 As String
+    Dim changeFile As String
+    Dim iTemp As Long
+    Dim iTemp0 As Long
+    Dim iTemp1 As Long
+    Dim iTemp2 As Long
+    Dim iRevType As Long
+    Dim iRevType0 As Long
+    Dim numOfAllRevs As Long
+    Dim numOfFinishedRevs As Long
+    Dim iPageNum As Long
+    Dim errorNo As Long
+    Dim indexRev0 As Long
+    Dim indexRev As Long
+    Dim numOfRevLoop As Long
+
+    'Title = "Extract Tracked Changes to New Document"
+    Title = "Track Me"
+    n = 0    'use to count extracted changes
+    errorNo = 0
+
+    ' Bill repeats some revision, so, track the tim/type to go around
+    sRevDate = "0"
+    sRevDate0 = "0"
+    iRevType = -111
+    iRevType0 = -111
+
+    Set oDoc = ActiveDocument
+
+    'First switch off TrackChanges, else each of your reformattings will become a revision again
+    'ActiveDocument.TrackRevisions = False
+
+    numOfAllRevs = oDoc.Revisions.Count
+    If oDoc.Revisions.Count = 0 Then
+        MsgBox "The active document contains no tracked changes.", vbOKOnly, Title
+        GoTo ExitHere
+    Else
+        'xxx
+
+        ' timeFromStr = InputBox("Type a starting date to track" & Chr(13) & "(e.g. 27.3.2013" & Chr(13) & "18.4.2013 14:1:12)", "Track recent revisions", DateAdd("d", -2, Now), 1, 1)
+
+        UserForm.Show
+
+        If timeFrom < CDate("01.01.1911") Then  ' timeFrom = "0" Then
+            GoTo ExitHere
+        End If
+        ' timeFrom = CDate(timeFromStr)
+        'If MsgBox("Do  you want to extract tracked changes to a new document?" & vbCr & vbCr & _
+         '        "NOTE: Only insertions and deletions will be included. " & _
+         '        "All other types of changes will be skipped.", _
+         '        vbYesNo + vbQuestion, Title) <> vbYes Then
+        '    GoTo ExitHere
+        'End If
+    End If
+
+    Application.ScreenUpdating = True
+    'Create a new document for the tracked changes, base on Normal.dot
+    Set oNewDoc = Documents.Add
+    'Set to landscape
+    oNewDoc.PageSetup.Orientation = wdOrientLandscape
+    With oNewDoc
+        'Make sure any content is deleted
+        .Content = ""
+        'Set appropriate margins
+        With .PageSetup
+            .LeftMargin = CentimetersToPoints(2)
+            .RightMargin = CentimetersToPoints(2)
+            .TopMargin = CentimetersToPoints(2.5)
+        End With
+        'Insert a 6-column table for the tracked changes and metadata
+        Set oTable = .Tables.Add _
+                     (Range:=Selection.Range, _
+                      numrows:=1, _
+                      NumColumns:=6)
+    End With
+
+
+    changeFile = "changes_" & Format(Date, "yyyymmdd") & "_" & Format(Time, "hhmm")
+
+    'Insert info in header - change date format as you wish
+    oNewDoc.Sections(1).Headers(wdHeaderFooterPrimary).Range.Text = _
+    "Tracked changes extracted from: " & oDoc.FullName & vbCr & _
+    "Created by: " & Application.UserName & vbCr & _
+    "Creation date: " & Format(Date, "MMMM d, yyyy")
+
+    'Adjust the Normal style and Header style
+    With oNewDoc.Styles(wdStyleNormal)
+        With .Font
+            .Name = "Arial"
+            .Size = 9
+            .Bold = False
+        End With
+        With .ParagraphFormat
+            .LeftIndent = 0
+            .SpaceAfter = 6
+        End With
+    End With
+
+    With oNewDoc.Styles(wdStyleHeader)
+        .Font.Size = 8
+        .ParagraphFormat.SpaceAfter = 0
+    End With
+
+    'Format the table appropriately
+    With oTable
+        .Range.Style = wdStyleNormal
+        .AllowAutoFit = False
+        .PreferredWidthType = wdPreferredWidthPercent
+        .PreferredWidth = 100
+        For Each oCol In .Columns
+            oCol.PreferredWidthType = wdPreferredWidthPercent
+        Next oCol
+        .Columns(1).PreferredWidth = 5  'Page
+        .Columns(2).PreferredWidth = 5  'Line
+        .Columns(3).PreferredWidth = 9    'Type of change
+        .Columns(4).PreferredWidth = 55    'Inserted/deleted text
+        .Columns(5).PreferredWidth = 10    'Author
+        .Columns(6).PreferredWidth = 15    'Revision date
+    End With
+
+    'Insert table headings
+    With oTable.Rows(1)
+        .Cells(1).Range.Text = "Page"
+        .Cells(2).Range.Text = "Line"
+        .Cells(3).Range.Text = "Type"
+        .Cells(4).Range.Text = "What has been inserted or deleted"
+        .Cells(5).Range.Text = "Author"
+        .Cells(6).Range.Text = "Date"
+    End With
+
+    ' save the doc file
+    ActiveDocument.SaveAs FileName:=changeFile, FileFormat:=wdFormatDocument, _
+                          LockComments:=False, Password:="", AddToRecentFiles:=True, WritePassword _
+                                                                                   :="", ReadOnlyRecommended:=False, EmbedTrueTypeFonts:=False, _
+                          SaveNativePictureFormat:=False, SaveFormsData:=False, SaveAsAOCELetter:= _
+                          False
+
+    On Error GoTo ErrorHandler
+
+    numOfFinishedRevs = 0
+    numOfRevLoop = 0
+    'Get info from each tracked change (insertion/deletion) from oDoc and insert in table
+    For Each oRevision In oDoc.Revisions
+
+        numOfFinishedRevs = numOfFinishedRevs + 1
+        indexRev = oRevision.Index
+        If (numOfFinishedRevs Mod 500) = 0 Then
+            Debug.Print ("n=" & numOfFinishedRevs & "/" & numOfRevLoop & " i=" & indexRev & "/" & iPageNum)
+            If iPageNum >= pageFrom Then
+                Windows(changeFile).Activate
+                ActiveDocument.Save
+                iTemp0 = 0
+            End If
+            iTemp0 = 0
+        End If
+
+        ' trace the recent changes
+        timeRev = oRevision.Date
+
+        If errorNo <> 0 Then
+            errorNo = 0
+            ' go next
+        Else
+
+            sRevDate = oRevision.Date
+            iRevType = oRevision.Type
+            iTemp1 = StrComp(sRevDate0, sRevDate, vbTextCompare)
+            iTemp2 = iRevType0 <> iRevType
+
+            If (StrComp(sRevDate0, sRevDate, vbTextCompare) <> 0 Or iRevType0 <> iRevType) Then
+
+                sRevDate0 = sRevDate
+                iRevType0 = iRevType
+                If (timeRev > timeFrom) And (timeRev <= timeTo) Then
+
+                    ' check page
+                    iPageNum = Val(oRevision.Range.Information(wdActiveEndPageNumber))
+                    If (iPageNum > pageFrom) And (iPageNum <= pageTo) Then
+
+                        ' wdNoRevision
+                        ' wdRevisionDelete
+                        ' wdRevisionInsert
+                        ' wdRevisionParagraphProperty
+                        ' wdRevisionReconcile
+                        ' wdRevisionSectionProperty
+                        ' wdRevisionStyleDefinition
+                        ' wdRevisionConflict
+                        ' wdRevisionDisplayField
+                        ' wdRevisionParagraphNumber
+                        ' wdRevisionProperty
+                        ' wdRevisionReplace
+                        ' wdRevisionStyle
+                        ' wdRevisionTableProperty
+                        Select Case iRevType
+                            ' Only include insertions and deletions
+                        Case wdRevisionInsert, wdRevisionDelete
+                            numOfRevLoop = numOfRevLoop + 1
+                            'In case of footnote/endnote references (appear as Chr(2)),
+                            'insert "[footnote reference]"/"[endnote reference]"
+                            With oRevision
+
+                                'Get the changed text
+                                strText = .Range.Text
+
+                                Set oRange = .Range
+                                Do While InStr(1, oRange.Text, Chr(2)) > 0
+                                    'Find each Chr(2) in strText and replace by appropriate text
+                                    i = InStr(1, strText, Chr(2))
+
+                                    If oRange.Footnotes.Count = 1 Then
+                                        strText = Replace(Expression:=strText, _
+                                                          Find:=Chr(2), Replace:="[footnote reference]", _
+                                                          Start:=1, Count:=1)
+                                        'To keep track of replace, adjust oRange to start after i
+                                        oRange.Start = oRange.Start + i
+
+                                    ElseIf oRange.Endnotes.Count = 1 Then
+                                        strText = Replace(Expression:=strText, _
+                                                          Find:=Chr(2), Replace:="[endnote reference]", _
+                                                          Start:=1, Count:=1)
+                                        'To keep track of replace, adjust oRange to start after i
+                                        oRange.Start = oRange.Start + i
+                                    End If
+                                Loop
+
+                            End With
+                            'Add 1 to counter
+                            n = n + 1
+                            'Add row to table
+                            Set oRow = oTable.Rows.Add
+
+                            'Insert data in cells in oRow
+                            With oRow
+                                'Page number
+                                .Cells(1).Range.Text = _
+                                oRevision.Range.Information(wdActiveEndPageNumber)
+
+                                'Line number - start of revision
+                                .Cells(2).Range.Text = _
+                                oRevision.Range.Information(wdFirstCharacterLineNumber)
+
+                                'Type of revision
+                                iRevType0 = oRevision.Type
+                                If oRevision.Type = wdRevisionInsert Then
+                                    .Cells(3).Range.Text = "Insert"
+                                    'Apply automatic color (black on white)
+                                    oRow.Range.Font.Color = wdColorAutomatic
+                                Else
+                                    .Cells(3).Range.Text = "Delete"
+                                    'Apply red color
+                                    oRow.Range.Font.Color = wdColorRed
+                                End If
+
+                                'The inserted/deleted text
+                                .Cells(4).Range.Text = Mid(strText, 1, 80)
+
+                                'The author
+                                .Cells(5).Range.Text = oRevision.Author
+
+                                'The revision date
+                                sRevDate0 = Format(oRevision.Date, "mm-dd-yyyy HH:mm:ss")
+                                .Cells(6).Range.Text = sRevDate0
+
+                            End With
+                        End Select
+                    End If
+                End If
+            End If
+        End If
+    Next oRevision
+
+    'If no insertions/deletions were found, show message and close oNewDoc
+    If n = 0 Then
+        MsgBox "No insertions or deletions were found.", vbOKOnly, Title
+        oNewDoc.Close savechanges:=wdDoNotSaveChanges
+        GoTo ExitHere
+    End If
+
+    'Apply bold formatting and heading format to row 1
+    With oTable.Rows(1)
+        .Range.Font.Bold = True
+        .HeadingFormat = True
+    End With
+
+    Application.ScreenUpdating = True
+    Application.ScreenRefresh
+
+    oNewDoc.Activate
+    MsgBox n & " tracked changed have been extracted. " & _
+           "Finished creating document.", vbOKOnly, Title
+
+ExitHere:
+    Set oDoc = Nothing
+    Set oNewDoc = Nothing
+    Set oTable = Nothing
+    Set oRow = Nothing
+    Set oRange = Nothing
+    Exit Sub
+
+ErrorHandler:        ' Error-handling routine.
+    errorNo = Err.Number
+    Select Case Err.Number    ' Evaluate error number.
+    Case 5852    ' object does not exist
+        Resume Next
+    Case Else
+        ' Handle other situations here....
+    End Select
+    Resume Next
+
+End Sub
+
+
+
+
+'*******************************************************************************
+'  *
+'  * Licensed Materials - Property of IBM
+'  *
+'  * (c) Copyright IBM Corp. 2008, 2009 All Rights Reserved
+'  *
+'  * US Government Users Restricted Rights - Use, duplication or
+'  * disclosure restricted by GSA ADP Schedule Contract with
+'  * IBM Corp.
+'  *
+' *******************************************************************************
+
+' Updates all the tables of figures in the document
+Public Sub peUpdateTablesOfFigures()
+    On Error Resume Next
+
+    Dim fldtof As TableOfFigures
+    For Each fldtof In ActiveDocument.TablesOfFigures
+
+        fldtof.IncludeLabel = False
+        fldtof.Update
+
+        fldtof.IncludeLabel = True
+        fldtof.Update
+    Next
+
+End Sub
+
+
+' Updates all the fields in the document
+Public Sub peUpdateFields()
+    ActiveDocument.Fields.Update
+End Sub
+
+
+' Updates all the tables of contents
+Sub peUpdateTOCs()
+
+    On Error Resume Next
+
+    Dim toc As TableOfContents
+    For Each toc In ActiveDocument.TablesOfContents
+        toc.Update
+        toc.UpdatePageNumbers
+    Next
+End Sub
+
+' embeds the content of the include file in the output document
+Private Function peIncludeOLEFromPath(path As String, doc As Document) As Boolean
+    On Error Resume Next
+
+    peIncludeOLEFromPath = False
+
+    Dim pos As Integer
+
+    pos = InStr(1, path, """", vbTextCompare)
+    If pos <= 0 Then
+        Exit Function
+    End If
+
+    path = Mid(path, pos + 1)
+
+    pos = InStr(1, path, """", vbTextCompare)
+    If pos <= 0 Then
+        Exit Function
+    End If
+
+    path = Left(path, pos - 1)
+    path = Replace(path, "\\", "\")
+
+    If Len(path) <= 0 Then
+        Exit Function
+    End If
+
+    pos = InStrRev(path, ".")
+    If pos <= 0 Then
+        Exit Function
+    End If
+
+    ' only handle TPE generated includes
+    Dim imgpath As String
+    imgpath = Left(path, pos)
+    imgpath = imgpath + "png"
+
+    If Dir(imgpath) = "" Then
+        Exit Function
+    End If
+
+    doc.ActiveWindow.Selection.InsertFile (path)
+
+    peIncludeOLEFromPath = True
+End Function
+
+' Checks all the include file fields and places their content inside the document
+Public Sub peInsertOLEs()
+
+    On Error Resume Next
+
+    Dim doc As Document
+    Set doc = ActiveDocument
+
+    Dim fld As Field
+    For Each fld In doc.Fields
+        If fld.Type = wdFieldIncludeText Then
+            Dim path As String
+
+            path = fld.Code
+            fld.Select
+
+            If peIncludeOLEFromPath(path, doc) Then
+                fld.Delete
+            End If
+
+        End If
+    Next
+
+End Sub
+
+' A macro to run them all
+Public Sub rpe()
+    On Error Resume Next
+    peInsertOLEs
+    peUpdateFields
+    peUpdateTablesOfFigures
+    peUpdateTOCs
+
+    ActiveDocument.Save
+End Sub
+
+
+Private Sub CommandButtonTrackMe_Click()
+    trackMe
+End Sub
+
+
+Private Sub CommandButtonTrackMe1_Click()
+    trackMe
+End Sub
+
+Private Sub Document_New()
+
+End Sub
+
+
+
+
+
+
