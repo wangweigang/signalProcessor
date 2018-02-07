@@ -1,0 +1,2090 @@
+Model {
+  Name			  "usefulBlocks"
+  Version		  7.3
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.2"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  Created		  "Sat Mar 31 09:10:49 2012"
+  Creator		  "Wang"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Wang"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Sat Mar 31 22:15:54 2012"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:2>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.6.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.6.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	  SignalSizeVariationType "Allow only fixed size"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.6.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Version		  "1.6.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    6
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.6.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  StrictBusMsg		  "Warning"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.6.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.6.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  8
+	  Version		  "1.6.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimUseLocalCustomCode	  off
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  9
+	  Version		  "1.6.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    6
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      10
+	      Version		      "1.6.0"
+	      Array {
+		Type			"Cell"
+		Dimension		17
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      11
+	      Version		      "1.6.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition    " [ 243, 69, 1123, 699 ] "
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+      DimensionsMode	      "auto"
+    }
+    Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeMode	      "Logical (see Configuration Parameters: Optimization)"
+      LogicDataType	      "uint(8)"
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+      DimensionsMode	      "auto"
+    }
+    Block {
+      BlockType		      RelationalOperator
+      Operator		      ">="
+      InputSameDT	      on
+      LogicOutDataTypeMode    "Logical (see Configuration Parameters: Optimization)"
+      LogicDataType	      "uint(8)"
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutputVariableDimensions off
+    }
+    Block {
+      BlockType		      UnitDelay
+      X0		      "0"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+  }
+  System {
+    Name		    "usefulBlocks"
+    Location		    [15, 414, 551, 703]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "ENABLE\nGENERATOR1"
+      RequirementInfo	      "{} %GIDa_201a8ea9_ba15_4201_a60f_fd2c24b9582f"
+      Ports		      [2, 2]
+      Position		      [375, 137, 470, 228]
+      ShowName		      off
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "CL_EnableGen"
+      MaskDescription	      "Generate an enable signal between a start and a stop trigger. The output is normally off "
+      "and it switches to on when the input start changes from 0 to 1. It remains on until the input end changes from 0"
+      " to 1, then switches again to off. If High Active is selected off =0, on = 1, viceversa for Low Active. "
+      MaskPromptString	      "Pulse Type"
+      MaskStyleString	      "popup(Low Active|High Active)"
+      MaskTunableValueString  "on"
+      MaskEnableString	      "on"
+      MaskVisibilityString    "on"
+      MaskToolTipString	      "on"
+      MaskVariables	      "Out_type=@1;"
+      MaskInitialization      "if (Out_type == 2), x = [0.65 0.65]; else x = [0.35,0.35]; end\nif (Out_type == 2), y ="
+      " [0.35 0.35]; else y = [0.65,0.65]; end\nif (Out_type == 2), z = [0.35 0.35]; else z = [0.65,0.65]; end"
+      MaskDisplay	      "plot([0.35 0.35],[0.65 0.35]);\nplot([0.65 0.65],[0.65 0.35]);\n\nplot([0.35 0.65],x);\nplot("
+      "[0.2 0.35],y);\nplot([0.65 0.8],z);\n\nplot([0.65 0.65],[0.23 0.31]);\nplot([0.65 0.65],[0.11 0.19]);\nplot([0.6"
+      "5 0.65],[0.69 0.77]);\nplot([0.65 0.65],[0.81 0.89]);\nplot([0.35 0.35],[0.23 0.31]);\nplot([0.35 0.35],[0.11 0."
+      "19]);\nplot([0.35 0.35],[0.69 0.77]);\nplot([0.35 0.35],[0.81 0.89]);\n\nplot([0 0.64], [0.21 0.21]);\nplot([0.6"
+      "1 0.64], [0.18 0.21]);\nplot([0.61 0.64], [0.24 0.21]);\n\nplot([0 0.34], [0.78 0.78]);\nplot([0.31 0.34], [0.75"
+      " 0.78]);\nplot([0.31 0.34], [0.8 0.78]);\n\ntext(0.04, 0.83, 'start','horizontalAlignment', 'left');\ntext(0.04,"
+      " 0.3, 'end','horizontalAlignment', 'left');\ntext(0.99, 0.77, 'out','horizontalAlignment', 'right');\ntext(1, 0."
+      "25, 'nstep','horizontalAlignment', 'right');\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      MaskValueString	      "High Active"
+      System {
+	Name			"ENABLE\nGENERATOR1"
+	Location		[299, 82, 1348, 739]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"darkGreen"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "start"
+	  RequirementInfo	  "{} %GIDa_bf1e0d46_2d12_4316_bff8_9d4b8e7b89a2"
+	  Position		  [165, 128, 195, 142]
+	  FontSize		  11
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "stop"
+	  RequirementInfo	  "{} %GIDa_4efaa4e2_974e_4a2a_a3c6_16de22efa608"
+	  Position		  [225, 78, 255, 92]
+	  FontSize		  11
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant22"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Constant block of dSPACE TargetLink.\n\nOutput signal keeps the given constant value."
+	  RequirementInfo	  "{} %GIDa_140a602d_ddda_4e51_8a82_6d76b95c8f87"
+	  Position		  [415, 178, 440, 202]
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Constant"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Constant''),else, web"
+	  "([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'"
+	  "'], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'date',734370.49190964119}"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant23"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Constant block of dSPACE TargetLink.\n\nOutput signal keeps the given constant value."
+	  RequirementInfo	  "{} %GIDa_130ccb9c_a41d_4794_abeb_d3dfa70ef9c2"
+	  Position		  [350, 73, 375, 97]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  Value			  "0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Constant"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Constant''),else, web"
+	  "([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'"
+	  "'], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'date',734370.49190927087}"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant24"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Constant block of dSPACE TargetLink.\n\nOutput signal keeps the given constant value."
+	  RequirementInfo	  "{} %GIDa_235a6bcb_563f_4ee2_a42c_c13b86915a99"
+	  Position		  [60, 103, 85, 127]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  Value			  "0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Constant"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Constant''),else, web"
+	  "([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'"
+	  "'], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'date',734370.49190891208}"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant25"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Constant block of dSPACE TargetLink.\n\nOutput signal keeps the given constant value."
+	  RequirementInfo	  "{} %GIDa_c2684536_7bed_4d43_aa10_4454bdcaa052"
+	  Position		  [235, 248, 260, 272]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  Value			  "2"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Constant"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Constant''),else, web"
+	  "([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'"
+	  "'], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'date',734370.49190855329}"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant26"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Constant block of dSPACE TargetLink.\n\nOutput signal keeps the given constant value."
+	  RequirementInfo	  "{} %GIDa_46650ceb_5d6f_4809_b218_9cef489c7d16"
+	  Position		  [175, 233, 225, 257]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  Value			  "Out_type"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Constant"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Constant''),else, web"
+	  "([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'"
+	  "'], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'date',734370.4919081945}"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Logical operator block of dSPACE TargetLink.\n\nThe Logical Operator block performs any of these lo"
+	  "gical operations on its inputs: AND, OR, NAND, NOR, XOR, and NOT. A nonzero input is treated as TRUE (1), a zero in"
+	  "put as FALSE (0). The output depends on the selected operator. The output is 1 if TRUE and 0 if FALSE."
+	  RequirementInfo	  "{} %GIDa_2cc13a48_13c8_4e59_adc7_b4052c8c31f2"
+	  Ports			  [1, 1]
+	  Position		  [220, 119, 250, 151]
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  Operator		  "NOT"
+	  Inputs		  "1"
+	  AllPortsSameDT	  off
+	  MaskType		  "TL_LogicalOperator"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_LogicalOperator''),el"
+	  "se, web([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) "
+	  "'.html''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'date',734370.49190782406}"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator1"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Logical operator block of dSPACE TargetLink.\n\nThe Logical Operator block performs any of these lo"
+	  "gical operations on its inputs: AND, OR, NAND, NOR, XOR, and NOT. A nonzero input is treated as TRUE (1), a zero in"
+	  "put as FALSE (0). The output depends on the selected operator. The output is 1 if TRUE and 0 if FALSE."
+	  RequirementInfo	  "{} %GIDa_311ef1c0_6a13_4359_bd4e_03e82d6ad069"
+	  Ports			  [1, 1]
+	  Position		  [360, 219, 390, 251]
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  Operator		  "NOT"
+	  Inputs		  "1"
+	  AllPortsSameDT	  off
+	  MaskType		  "TL_LogicalOperator"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_LogicalOperator''),el"
+	  "se, web([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) "
+	  "'.html''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'date',734370.49190765049}"
+	}
+	Block {
+	  BlockType		  RelationalOperator
+	  Name			  "Relational\nOperator7"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Relational operator block of dSPACE TargetLink.\n\nThis block performs a relational operation on it"
+	  "s two inputs u1 and u2 and produces output according to the following table.\nIf the result is TRUE, the output is "
+	  "1; if FALSE, it is 0.\n\nOperator   Output\n ==        TRUE if u1 is equal to u2\n !=        TRUE if u1 is not equa"
+	  "l to u2\n <         TRUE if u1 is less than u2\n <=        TRUE if u1 is less than or equal to u2\n >=        TRUE "
+	  "if u1 is greater than or equal to u2\n >         TRUE if u1 is greater than u2"
+	  RequirementInfo	  "{} %GIDa_98d1f3f6_e4e3_4bc2_9015_3baf934735f7"
+	  Position		  [120, 92, 150, 123]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  Operator		  ">"
+	  InputSameDT		  off
+	  MaskType		  "TL_RelationalOperator"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_RelationalOperator'')"
+	  ",else, web([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype'"
+	  ")) '.html''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'date',734370.4919072917}"
+	}
+	Block {
+	  BlockType		  RelationalOperator
+	  Name			  "Relational\nOperator8"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Relational operator block of dSPACE TargetLink.\n\nThis block performs a relational operation on it"
+	  "s two inputs u1 and u2 and produces output according to the following table.\nIf the result is TRUE, the output is "
+	  "1; if FALSE, it is 0.\n\nOperator   Output\n ==        TRUE if u1 is equal to u2\n !=        TRUE if u1 is not equa"
+	  "l to u2\n <         TRUE if u1 is less than u2\n <=        TRUE if u1 is less than or equal to u2\n >=        TRUE "
+	  "if u1 is greater than or equal to u2\n >         TRUE if u1 is greater than u2"
+	  RequirementInfo	  "{} %GIDa_fb325a08_e4cc_42d3_b9a6_2acd92718822"
+	  Position		  [275, 237, 305, 268]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  Operator		  "=="
+	  InputSameDT		  off
+	  MaskType		  "TL_RelationalOperator"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_RelationalOperator'')"
+	  ",else, web([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype'"
+	  ")) '.html''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'date',734370.49190710648}"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Sum block of dSPACE TargetLink.\n\nOutput signal is equal to the sum of the input signals.\nThe lis"
+	  "t of signs is specified according to conventions for Simulink Sum blocks."
+	  RequirementInfo	  "{} %GIDa_fee237e1_540f_4031_b73c_44e11a4e403d"
+	  Ports			  [2, 1]
+	  Position		  [380, 167, 400, 198]
+	  BlockMirror		  on
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^-10"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  MaskType		  "TL_Sum"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Sum''),else, web([''j"
+	  "ar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html''], '"
+	  "'-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'date',734370.49190674769}"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Switch block of dSPACE TargetLink.\n\nPasses through input 1 if input 2 is greater than or equal to"
+	  " threshold, otherwise, passes through input 3:\n\nif u2 >= threshold\n   y = u1;\nelse\n   y = u3;\nend"
+	  RequirementInfo	  "{} %GIDa_7150e51e_b68a_49bf_bdc2_b4a908e22df9"
+	  Position		  [425, 226, 455, 284]
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	  MaskType		  "TL_Switch"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Switch''),else, web(["
+	  "''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'']"
+	  ", ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'max',1,'min',0,'type','UInt8'},'date',734370.491906377"
+	  "37}"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch1"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Switch block of dSPACE TargetLink.\n\nPasses through input 1 if input 2 is greater than or equal to"
+	  " threshold, otherwise, passes through input 3:\n\nif u2 >= threshold\n   y = u1;\nelse\n   y = u3;\nend"
+	  RequirementInfo	  "{} %GIDa_42f01913_5241_489c_9167_207469ef5ba8"
+	  Position		  [280, 73, 310, 147]
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	  MaskType		  "TL_Switch"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Switch''),else, web(["
+	  "''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'']"
+	  ", ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','Bool'},'date',734370.49190584489}"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch2"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Switch block of dSPACE TargetLink.\n\nPasses through input 1 if input 2 is greater than or equal to"
+	  " threshold, otherwise, passes through input 3:\n\nif u2 >= threshold\n   y = u1;\nelse\n   y = u3;\nend"
+	  RequirementInfo	  "{} %GIDa_1bdd698b_9d07_4923_8591_3b150e34f272"
+	  Position		  [390, 73, 420, 147]
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontName		  "Arial"
+	  FontSize		  11
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	  MaskType		  "TL_Switch"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Switch''),else, web(["
+	  "''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'']"
+	  ", ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'date',734370.49190530088}"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Unit Delay block of dSPACE TargetLink.\n\nOutput signal is equal to the input signal of the last sa"
+	  "mple step:\n\n        y(k) = u(k-1).\n\nIn the 1st sampling step, the output signal is initialized with 'initial co"
+	  "ndition':\n\n        y(0) = initial condition"
+	  RequirementInfo	  "{} %GIDa_fe8952cf_f4bd_47de_9ff7_3c67404d066a"
+	  Position		  [370, 22, 400, 58]
+	  BlockMirror		  on
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  SampleTime		  "-1"
+	  MaskType		  "TL_UnitDelay"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_UnitDelay''),else, we"
+	  "b([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html"
+	  "''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'state',{'type','UInt8'},'date',734370."
+	  "49190475699}"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay1"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  Description		  "Unit Delay block of dSPACE TargetLink.\n\nOutput signal is equal to the input signal of the last sa"
+	  "mple step:\n\n        y(k) = u(k-1).\n\nIn the 1st sampling step, the output signal is initialized with 'initial co"
+	  "ndition':\n\n        y(0) = initial condition"
+	  RequirementInfo	  "{} %GIDa_896786c0_33c3_498d_9edc_2a3bf306746c"
+	  Position		  [470, 157, 500, 193]
+	  BlockMirror		  on
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  SampleTime		  "-1"
+	  MaskType		  "TL_UnitDelay"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_UnitDelay''),else, we"
+	  "b([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html"
+	  "''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'state',{'type','UInt8'},'date',734370."
+	  "49190421298}"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out"
+	  RequirementInfo	  "{} %GIDa_5eae2f49_d130_4534_8ff6_cbbdf149f5ce"
+	  Position		  [495, 247, 525, 263]
+	  FontSize		  11
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "nstep"
+	  RequirementInfo	  "{} %GIDa_305dc0af_f935_4470_a1de_2d7fefb47190"
+	  Position		  [40, 32, 70, 48]
+	  BlockMirror		  on
+	  FontSize		  11
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "start"
+	  SrcPort		  1
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "stop"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant24"
+	  SrcPort		  1
+	  DstBlock		  "Relational\nOperator7"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Relational\nOperator7"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  Points		  [-260, 0]
+	  Branch {
+	    DstBlock		    "nstep"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Relational\nOperator7"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    Points		    [0, 125]
+	    Branch {
+	      DstBlock		      "Logical\nOperator1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 40]
+	      DstBlock		      "Switch"
+	      DstPort		      3
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "Switch2"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant25"
+	  SrcPort		  1
+	  DstBlock		  "Relational\nOperator8"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant26"
+	  SrcPort		  1
+	  DstBlock		  "Relational\nOperator8"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Relational\nOperator8"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [-15, 0; 0, -50]
+	  DstBlock		  "Switch2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant23"
+	  SrcPort		  1
+	  DstBlock		  "Switch2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch2"
+	  SrcPort		  1
+	  Points		  [0, 0; 105, 0]
+	  Branch {
+	    Points		    [0, 65]
+	    DstBlock		    "Unit Delay1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -70]
+	    DstBlock		    "Unit Delay"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant22"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Unit Delay1"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "RESET COUNTER"
+      RequirementInfo	      "{} %GIDa_9b023074_786b_4ff2_be96_b9d3dceebbea"
+      Ports		      [3, 1]
+      Position		      [185, 38, 285, 102]
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "CL_ResetCount"
+      MaskDescription	      "Counter incremented with an input variable step (Step) and resettable with the input Rese"
+      "t to the input initial condition Init. \n\n"
+      MaskDisplay	      "plot([0.4 0.4 1],[0 0.3 0.3]);\ntext(0.45,0.22,'RESET');\ntext(0.45,0.08,'COUNTER');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      System {
+	Name			"RESET COUNTER"
+	Location		[299, 82, 1348, 739]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"darkGreen"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Reset"
+	  Tag			  "TYPE:; LSB:; OFF:; RANGE:; UNIT:;"
+	  RequirementInfo	  "{} %GIDa_c61dec08_8ede_499e_a445_eb75b1d122e6"
+	  Position		  [75, 73, 105, 87]
+	  FontSize		  11
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Step"
+	  Tag			  "TYPE:; LSB:; OFF:; RANGE:; UNIT:;"
+	  RequirementInfo	  "{} %GIDa_dd6e2f10_a443_4764_816b_16ac24683437"
+	  Position		  [180, 153, 210, 167]
+	  BlockMirror		  on
+	  FontSize		  11
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Init"
+	  Tag			  "TYPE:; LSB:; OFF:; RANGE:; UNIT:;"
+	  RequirementInfo	  "{} %GIDa_08bdd9b5_c608_4eb1_8922_81aa6ce08049"
+	  Position		  [105, 48, 135, 62]
+	  FontSize		  11
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  RequirementInfo	  "{} %GIDa_a2e2d7e4_4922_48c8_a4be_fde9d9d04524"
+	  Ports			  [2, 1]
+	  Position		  [140, 137, 160, 168]
+	  BlockMirror		  on
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Sum"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Sum''),else, web([''j"
+	  "ar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html''], '"
+	  "'-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'date',734370.49188685184}"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  RequirementInfo	  "{} %GIDa_f80412b4_a0da_4926_af9f_3056622962d2"
+	  Position		  [150, 43, 180, 117]
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  Threshold		  "0.5"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  MaskType		  "TL_Switch"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_Switch''),else, web(["
+	  "''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html'']"
+	  ", ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'date',734370.49188630783}"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay"
+	  Tag			  "COPIED_DURING_UPGRADE"
+	  RequirementInfo	  "{} %GIDa_fad9a730_fae3_418f_9aff_087c033b2bd4"
+	  Position		  [230, 127, 260, 163]
+	  BlockMirror		  on
+	  ShowName		  off
+	  DeleteFcn		  "if exist('delete_tlblock','file')==2,delete_tlblock(gcbh);end"
+	  NameChangeFcn		  "if exist('rename_tlblock','file')==2,rename_tlblock(gcbh);end"
+	  OpenFcn		  "if exist('tl_open_blockdlg','file')==2,tl_open_blockdlg(gcbh);else,open_system(gcbh,'parameter');end"
+	  FontSize		  11
+	  SampleTime		  "-1"
+	  MaskType		  "TL_UnitDelay"
+	  MaskHelp		  "eval(['if exist(''tl_online_help'',''file'') == 2, tl_online_help(''Topic'',''TL_UnitDelay''),else, we"
+	  "b([''jar:file:///'',matlabroot,''/help/toolbox/simulink/help.jar!/slref/' lower(get_param(gcbh,'Blocktype')) '.html"
+	  "''], ''-helpbrowser''),end'])"
+	  MaskPromptString	  "data"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "off"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "data=&1;"
+	  MaskDisplay		  "plot([-0.05, 1.05, NaN, -0.05, 1.05],[.01, .01, NaN, .99, .99])\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "{'logdata',{'plotchannels',[]},'output',{'type','UInt8'},'state',{'type','UInt8'},'date',734370."
+	  "49188576394}"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Count"
+	  Tag			  "TYPE:; LSB:; OFF:; RANGE:; UNIT:;"
+	  RequirementInfo	  "{} %GIDa_3665e323_aff5_41e1_ba42_81b3bd8e64b6"
+	  Position		  [320, 73, 350, 87]
+	  FontSize		  11
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [0, 0; 105, 0]
+	  Branch {
+	    Points		    [0, 65]
+	    DstBlock		    "Unit Delay"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Count"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Reset"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Init"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [-15, 0; 0, -50]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Subsystem"
+      Ports		      [2, 2]
+      Position		      [210, 223, 285, 307]
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Subsystem"
+	Location		[-3, 83, 542, 485]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "start"
+	  Position		  [50, 168, 80, 182]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "stop"
+	  Position		  [50, 98, 80, 112]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [55, 136, 85, 154]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [280, 291, 310, 309]
+	  ShowName		  off
+	  Value			  "2"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [280, 311, 310, 329]
+	  ShowName		  off
+	  Value			  "2"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  Position		  [380, 226, 410, 244]
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  Position		  [255, 96, 285, 114]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  Ports			  [1, 1]
+	  Position		  [130, 159, 160, 191]
+	  ShowName		  off
+	  Operator		  "NOT"
+	  AllPortsSameDT	  off
+	  OutDataTypeMode	  "boolean"
+	  LogicDataType		  "fixdt(0, 8)"
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator1"
+	  Ports			  [1, 1]
+	  Position		  [325, 259, 355, 291]
+	  ShowName		  off
+	  Operator		  "NOT"
+	  AllPortsSameDT	  off
+	  OutDataTypeMode	  "boolean"
+	  LogicDataType		  "fixdt(0, 8)"
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  RelationalOperator
+	  Name			  "Relational\nOperator"
+	  Position		  [130, 122, 160, 153]
+	  ShowName		  off
+	  Operator		  ">"
+	  InputSameDT		  off
+	  LogicOutDataTypeMode	  "boolean"
+	  LogicDataType		  "fixdt(0, 8)"
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  RelationalOperator
+	  Name			  "Relational\nOperator2"
+	  Position		  [375, 291, 405, 329]
+	  ShowName		  off
+	  Operator		  "=="
+	  InputSameDT		  off
+	  LogicOutDataTypeMode	  "boolean"
+	  LogicDataType		  "fixdt(0, 8)"
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [320, 211, 350, 244]
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [210, 84, 230, 196]
+	  ShowName		  off
+	  Threshold		  "0.1"
+	  InputSameDT		  off
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	  ZeroCross		  off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch1"
+	  Position		  [435, 254, 455, 366]
+	  ShowName		  off
+	  Threshold		  "0.1"
+	  InputSameDT		  off
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch2"
+	  Position		  [325, 84, 345, 196]
+	  ShowName		  off
+	  Threshold		  "0.1"
+	  InputSameDT		  off
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	  ZeroCross		  off
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay1"
+	  Position		  [200, 28, 235, 62]
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay2"
+	  Position		  [425, 203, 460, 237]
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  X0			  "1"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "nstep"
+	  Position		  [50, 38, 80, 52]
+	  BlockMirror		  on
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "out"
+	  Position		  [480, 303, 510, 317]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Relational\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Unit Delay1"
+	  SrcPort		  1
+	  Points		  [-95, 0]
+	  Branch {
+	    Points		    [0, 85]
+	    DstBlock		    "Relational\nOperator"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "nstep"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Relational\nOperator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Unit Delay2"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Relational\nOperator2"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Switch2"
+	  SrcPort		  1
+	  Points		  [125, 0]
+	  Branch {
+	    Points		    [0, -95]
+	    DstBlock		    "Unit Delay1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Unit Delay2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  DstBlock		  "Switch2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Switch2"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 135]
+	    Branch {
+	      Points		      [0, 70]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	    Branch {
+	      DstBlock		      "Logical\nOperator1"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [-25, 0; 0, -55]
+	  DstBlock		  "Switch2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Relational\nOperator2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Relational\nOperator2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator1"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "stop"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "start"
+	  SrcPort		  1
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  DstBlock		  "out"
+	  DstPort		  1
+	}
+      }
+    }
+  }
+}
