@@ -1,0 +1,139 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  dword hOfFileGlbl     = 0; // handle of file
+  // data heading
+  char buffer[100]      = "Time[s] Speed[kmh] Acceleration[m/s/s] Direction[deg] Steering_Angle[deg] \n";
+  double speedVehicle   = 0.0;             // km/h
+  double accelVehicle   = 9.8/10;          // m/s/s
+  double angleSteering  = 0.0;             // deggree
+  double headingVehicle = -0.5*3.1415926;   // radians
+  double rateTurning    = 3.0;             // degree
+  double timeStamp      = 0;               // time stamp
+  const int timeInterval2Store = 50;     // ms
+  msTimer time2Store;                      // ms timer
+  long counterLogLine   = 0;               // counter to be used to close and reopen the log file
+  const int save4Every  = 2;
+  const int steeringReturnCounterMax = 10;   // how many events to pull steering angle back to 0
+  int steeringReturnCounter          = 0;
+  double steeringReturnRate          = 2.0;
+  
+  double varTemp                     = 0.0;
+  int steeringReturnCounterPrevious  = 0;
+}
+
+float fabs(float x)
+{
+  return (x>0) - (x<0);
+}
+
+
+float sign(float x)
+{
+  return (x>0)?x:-x;
+}
+
+on start
+{
+  // open a file to which some parameters of second coil location detected by the position mechanism
+  hOfFileGlbl = openFileWrite("secondaryLocation.asc", 0);
+  filePutString(buffer, elcount(buffer), hOfFileGlbl); // write the heading first
+  settimer(time2Store, timeInterval2Store);
+
+}
+
+on preStop
+{
+  fileClose(hOfFileGlbl);
+}
+
+on key 'w'
+{
+  speedVehicle += accelVehicle;
+  speedVehicle  = ((speedVehicle<40)?speedVehicle:40);
+}
+
+on key 's'
+{
+  speedVehicle -= accelVehicle;
+  speedVehicle  = ((speedVehicle>-10)?speedVehicle:-10);
+}
+
+on key 'a'
+{
+  if (angleSteering>0){
+    angleSteering  = 0;
+  } 
+  angleSteering         -= rateTurning;
+  steeringReturnCounterPrevious = steeringReturnCounter;
+  steeringReturnCounter += 1;
+  steeringReturnCounter  = ((steeringReturnCounter<steeringReturnCounterMax)?steeringReturnCounter:steeringReturnCounterMax);
+  angleSteering          = ((angleSteering>-45)?angleSteering:-45);
+}
+
+on key 'd'
+{
+  if (angleSteering<0){
+    angleSteering  = 0;
+  }
+  angleSteering         += rateTurning;
+  steeringReturnCounterPrevious = steeringReturnCounter;
+  steeringReturnCounter += 1;
+  steeringReturnCounter  = ((steeringReturnCounter<steeringReturnCounterMax)?steeringReturnCounter:steeringReturnCounterMax);
+  angleSteering          = ((angleSteering<45)?angleSteering:45);
+}
+
+on timer time2Store
+{
+  char strTemp[100];
+  int numOfStr = 0;
+  timeStamp    = timeNowFloat()*1e-5;   
+  numOfStr     = snprintf(strTemp, 100, "%8.3f %6.2f %6.2f %6.2f  %6.2f \n", timeStamp,speedVehicle,accelVehicle,headingVehicle,angleSteering);
+  filePutString(strTemp, elcount(strTemp), hOfFileGlbl); // append data
+  
+  if (counterLogLine==save4Every) {
+    fileClose(hOfFileGlbl);
+    hOfFileGlbl     = openFileWrite("secondaryLocation.asc", 2);  // open as new
+    counterLogLine  = 0;
+  } else {
+    counterLogLine += 1;
+  }
+  write("%8.3f %6.2f %6.2f %6.2f %6.2f %d %d", timeStamp,speedVehicle,accelVehicle,
+  headingVehicle,angleSteering, steeringReturnCounter,steeringReturnCounterPrevious);
+  
+  // handle steering return
+  
+  if (steeringReturnCounter-steeringReturnCounterPrevious==1) {
+    steeringReturnCounterPrevious = -11;
+  } 
+  else 
+  {
+    if (angleSteering!=0.0) {
+      varTemp         = angleSteering;
+      angleSteering   = sign(angleSteering) * (fabs(angleSteering)-steeringReturnRate);
+      // angleSteering   = ((angleSteering>0) - (angleSteering<0)) * (((angleSteering>0)?angleSteering:-angleSteering)-steeringReturnRate);
+      if (varTemp*angleSteering<0.0) {
+        angleSteering = 0.0;
+      }
+    }
+  }
+ 
+  settimer(this, timeInterval2Store);
+}
+
+
+// Reaktion auf die Änderung der Umgebungsvar. evSwitch
+on envVar evSwitch {
+  // Deklaration einer zu versendenden CAN-Botschaft
+  message Msg1 msg;
+  // Auslesen des Wertes des Lichtschalters,
+  // Zuweisung an das Bussignal bsSwitch
+  msg.bsSwitch = getValue(this);
+  // Ausgabe d. Botschaft auf Bus (spontanes Senden)
+  output(msg);
+}
